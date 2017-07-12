@@ -28,7 +28,7 @@ public class ColorRender extends JLabel implements TableCellRenderer {
 				// setForeground(Color.BLACK);
 			}
 			if (Integer.valueOf(table.getValueAt(row, column).toString()) == 2) {
-				setBackground(Color.GREEN);
+				setBackground(Color.ORANGE);
 				// setForeground(Color.BLACK);
 			}
 		} else
