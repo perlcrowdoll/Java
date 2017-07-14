@@ -52,7 +52,8 @@ public class WizardOfYesNo extends JFrame {
 		
 		try
 		{
-			String className = UIManager.getCrossPlatformLookAndFeelClassName();
+			//String className = UIManager.getCrossPlatformLookAndFeelClassName();
+			String className = UIManager.getSystemLookAndFeelClassName();
 			UIManager.setLookAndFeel(className);
 		}
 		catch (Exception e)
