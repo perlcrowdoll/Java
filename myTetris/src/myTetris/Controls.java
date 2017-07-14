@@ -22,6 +22,33 @@ public class Controls implements KeyListener {
 			Actions.rotate();
 		}
 		if (e.getKeyCode() == KeyEvent.VK_P) {
+			System.out.println("pause");
+			if (pause == false)
+			{
+				System.out.println(Thread.currentThread());
+				System.out.println("pause - 1");
+				pause=true;
+
+						try {
+							Main.game.sleep(5000);
+						} catch (InterruptedException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+
+
+			}
+			if (pause == true)
+			{
+				System.out.println("pause - 2");
+				pause=false;
+				try {
+					Main.game.sleep(1);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_SPACE)
