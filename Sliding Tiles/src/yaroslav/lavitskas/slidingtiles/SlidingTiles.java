@@ -62,6 +62,24 @@ public class SlidingTiles extends JFrame {
 		//Button Panel
 		
 	}
+
+	private void clickedTile(TileButton clickedTile) {
+		int row=clickedTile.getRow();
+		int col=clickedTile.getCol();
+		if(row>0 && tile[row-1][col].hasNoImage())
+		{
+			clickedTile.swap(tile[row-1][col]);
+		}
+		if(row<2 && tile[row+1][col].hasNoImage())
+		{
+			clickedTile.swap(tile[row+1][col]);
+		}
+		if(col>0 && tile[col+1][col].hasNoImage())
+		{
+			clickedTile.swap(tile[row+1][col]);
+		}
+	}
+
 	
 
 	private void divideImage() {
@@ -78,6 +96,11 @@ public class SlidingTiles extends JFrame {
 				BufferedImage subimage = image.getSubimage(x, y, tileSize, tileSize);
 				ImageIcon imageIcon = new ImageIcon(subimage);
 				tile[row][col] = new TileButton(imageIcon, imageId, row, col);
+				tile[row][col].addActionListener(e -> {
+					TileButton button = (TileButton) e.getSource();
+					clickedTile(button);
+					
+				});
 				centerPanel.add(tile[row][col]);
 				imageId++;
 			}

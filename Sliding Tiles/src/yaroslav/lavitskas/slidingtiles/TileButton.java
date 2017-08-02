@@ -31,6 +31,8 @@ public class TileButton extends JButton {
 		setFocusPainted(false);
 	}
 	
+
+	
 	public void setImage(ImageIcon imageIcon, int imageId)
 	{
 		this.imageIcon = imageIcon;
@@ -40,6 +42,25 @@ public class TileButton extends JButton {
 			setIcon(imageIcon);
 		}
 	}
+	
+	public void showImage() {
+		setIcon(imageIcon);
+	}
+	
+	public void swap(TileButton otherTile) {
+		ImageIcon otherImageIcon = otherTile.getImage();
+		int otherImageId = otherTile.getImageId();
+		otherTile.setImage(this.getImage(), this.getImageId());
+		setImage(otherImageIcon, otherImageId);
+		
+	}
+	
+	protected boolean hasNoImage() {
+		boolean hasNoImage = false;
+		if (this.getIcon()==null) hasNoImage=true;
+		return hasNoImage;
+	}
+	
 	public ImageIcon getImage()
 	{
 		return imageIcon;
